@@ -1,0 +1,16 @@
+<StudentListResponse>
+    <studentResponseList>
+        <studentResponseList>
+            <id>12</id>
+            <name>Learning Java</name>
+            <marks>120</marks>
+            <address>Chennia</address>
+        </studentResponseList>
+        <studentResponseList>
+            <id>13</id>
+            <name>Java</name>
+            <marks>1211</marks>
+            <address>Navulur</address>
+        </studentResponseList>
+    </studentResponseList>
+</StudentListResponse>
