@@ -25,42 +25,44 @@ public class StudentService {
 
     @Autowired
     private StudentJpaRepo studentJpaRepo;
+
     public StudentService(StudentRepo studentRepo) {
         this.studentRepo = studentRepo;
     }
 
 
-    public List<StudentEntity> getStudentName(){
+    public List<StudentEntity> getStudentName() {
 
         return (List<StudentEntity>) studentRepo.findAll();
     }
-//    public StudentEntity getStudentNameAndMarks(String)
-    public StudentEntity createStudent(StudentEntity student){
+
+    //    public StudentEntity getStudentNameAndMarks(String)
+    public StudentEntity createStudent(StudentEntity student) {
         return studentRepo.save(student);
     }
 
-    public String fetchNameAndMarks(int id, int marks){
+    public String fetchNameAndMarks(int id, int marks) {
         String response = null;
         try {
-            response=  studentRepo.fetch(id, marks);
-        }catch (Exception e){
+            response = studentRepo.fetch(id, marks);
+        } catch (Exception e) {
             System.out.println(e);
         }
         return response;
     }
 
-    public List<StudentEntity> fetchBySort(){
+    public List<StudentEntity> fetchBySort() {
         return studentJpaRepo.findAll(Sort.by("studentName", "marks").ascending());
     }
-    public void deleteRecord(int studentId){
+
+    public void deleteRecord(int studentId) {
         studentJpaRepo.deleteById(studentId);
     }
-    public Page<StudentEntity> recordsPagevise(int pageNo, int pageSize){
+
+    public Page<StudentEntity> recordsPagevise(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize, Sort.by("marks").ascending());
         return studentJpaRepo.findAll(pageable);
     }
-
-
 
 
 }

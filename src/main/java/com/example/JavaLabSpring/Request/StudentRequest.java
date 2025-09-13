@@ -5,9 +5,10 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "studentResponseList")
 public class StudentRequest {
-    private  int id;
+    private int id;
     private String name;
     private String marks;
+
     @XmlElement
     public int getId() {
         return id;
@@ -16,6 +17,7 @@ public class StudentRequest {
     public void setId(int id) {
         this.id = id;
     }
+
     @XmlElement
     public String getName() {
         return name;
@@ -24,6 +26,7 @@ public class StudentRequest {
     public void setName(String name) {
         this.name = name;
     }
+
     @XmlElement
     public String getMarks() {
         return marks;
@@ -32,6 +35,7 @@ public class StudentRequest {
     public void setMarks(String marks) {
         this.marks = marks;
     }
+
     @XmlElement
     public String getAddress() {
         return address;
@@ -41,6 +45,6 @@ public class StudentRequest {
         this.address = address;
     }
 
-    private  String address;
+    private String address;
 }
 

@@ -22,26 +22,29 @@ public class StudentController {
     }
 
     private StudentService studentService;
+
     @GetMapping(value = "/studentName")
-    public List<StudentEntity> studentName(){
+    public List<StudentEntity> studentName() {
         return studentService.getStudentName();
     }
+
     @PostMapping(value = "/createStudent")
-    public StudentEntity createStudent(@RequestBody StudentEntity student){
+    public StudentEntity createStudent(@RequestBody StudentEntity student) {
         return studentService.createStudent(student);
     }
+
     @GetMapping(value = "/fetchNameAndMarks/studentId/{id}/marks/{marks}")
     public ResponseEntity fetchNamAndMarks(@PathVariable int id,
-                                           @PathVariable int marks){
-        try{
+                                           @PathVariable int marks) {
+        try {
             String result = studentService.fetchNameAndMarks(id, marks);
-            if (result != null){
+            if (result != null) {
                 return ResponseEntity.ok(result);
-            }else {
+            } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("something wrong");
 
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error");
 
         }
@@ -49,17 +52,21 @@ public class StudentController {
     }
 
     @GetMapping(value = "/fecthStudentInfo")
-    public List<StudentEntity> fetchBySort(){
+    public List<StudentEntity> fetchBySort() {
         return studentService.fetchBySort();
+
     }
+
     @GetMapping(value = "/deleteRecord/studentId/{id}")
-    public void deleteRecord(@PathVariable int id){
+    public void deleteRecord(@PathVariable int id) {
         studentService.deleteRecord(id);
+
     }
+
     @GetMapping(value = "/fetchPagewise/pageNo/{no}/pageSize/{size}")
     public Page<StudentEntity> fetchPageWise(@PathVariable int no,
-                                             @PathVariable int size){
+                                             @PathVariable int size) {
 
-        return studentService.recordsPagevise(no,size);
+        return studentService.recordsPagevise(no, size);
     }
 }

@@ -4,6 +4,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.List;
+
 @XmlRootElement(name = "StudentListResponse")
 public class StudentListResponse {
 
@@ -12,7 +13,8 @@ public class StudentListResponse {
     public StudentListResponse(List<StudentResponse> studentResponseList) {
         this.studentResponseList = studentResponseList;
     }
- @XmlElement(name = "studentResponse")
+
+    @XmlElement(name = "studentResponse")
     public List<StudentResponse> getStudentResponseList() {
         return studentResponseList;
     }

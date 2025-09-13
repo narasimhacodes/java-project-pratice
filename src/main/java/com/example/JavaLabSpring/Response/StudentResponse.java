@@ -11,7 +11,6 @@ public class StudentResponse {
     public String address;
 
 
-
     public int getId() {
         return id;
     }
